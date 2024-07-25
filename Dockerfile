@@ -1,17 +1,17 @@
-# using Python 3.10 image
+
 FROM python:3.10-slim
 
-# working path
-WORKDIR /app
+
+WORKDIR C:\Users\Thinkpad\testrepo
 
 
-COPY requirements.txt requirements.txt
+COPY requirements.txt /app
 
- 
+
 RUN pip install --no-cache-dir -r requirements.txt
 
 
-COPY . .
+COPY . /app
 
-
-CMD ["python", "app/app.py"]
+# Uygulamayı çalıştır
+CMD ["python", "app.py"]
