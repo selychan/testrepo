@@ -2,7 +2,7 @@
 FROM python:3.10-slim
 
 
-WORKDIR C:\Users\Thinkpad\testrepo
+WORKDIR \testrepo
 
 
 COPY requirements.txt /app
