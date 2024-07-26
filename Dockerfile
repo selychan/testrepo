@@ -13,5 +13,5 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . /app
 
-# Uygulamayı çalıştır
+
 CMD ["python", "app.py"]
