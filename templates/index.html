@@ -18,7 +18,7 @@
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
         {% if name %}
-            <h2 class="mt-4">Hello, {{ name }}!</h2>
+            <h2 class="mt-4">Hello, {{ name|safe }}!</h2>
         {% endif %}
     </div>
 </body>
