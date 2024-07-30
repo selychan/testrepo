@@ -25,7 +25,19 @@ jobs:
           ignore-unfixed: true
           vuln-type: 'os,library'
           severity: 'CRITICAL,HIGH'
-      - name: Upload Trivy scan results to GitHub Security tab
-        uses: github/codeql-action/upload-sarif@v2
+      - name: Post Trivy results as PR comment
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v6
         with:
-          sarif_file: 'trivy-results.sarif'
+          script: |
+            const fs = require('fs');
+            const trivyResult = fs.readFileSync('${{ steps.trivy_scan.outputs.report }}', 'utf8');
+            const issue_number = context.payload.pull_request.number;
+            const { owner, repo } = context.repo;
+
+            github.issues.createComment({
+              owner,
+              repo,
+              issue_number,
+              body: `### Trivy Scan Results\n\`\`\`\n${trivyResult}\n\`\`\``
+            });
