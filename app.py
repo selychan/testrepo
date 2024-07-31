@@ -9,6 +9,9 @@ def index():
         name = request.form.get('name')
     return render_template('index.html', name=name)
 
-
+@app.route('/hello')
+def index():
+    name = "sely is here"
+    return render_template('index.html', name=name)
 if __name__ == '__main__':
     app.run(debug=True)
