@@ -43,7 +43,7 @@ jobs:
           ignore-unfixed: true
           severity: 'CRITICAL,HIGH'
 
-      - name: Upload Trivy scan results to GitHub Security tab
-        uses: github/codeql-action/upload-sarif@v3
+      - name: Upload Trivy scan results to PR comment
+        uses: sett-and-hive/sarif-to-comment-action@v2.0.1
         with:
           sarif_file: 'trivy-results.sarif'
