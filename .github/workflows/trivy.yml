@@ -33,17 +33,16 @@ jobs:
           docker build -t docker.io/my-organization/my-app:${{ github.sha }} .
 
       - name: Run Trivy vulnerability scanner
-        uses: aquasecurity/trivy-action@7b7aa264d83dc58691451798b4d117d53d21edfe
+        uses: aquasecurity/trivy-action@0.24.0
         with:
           image-ref: 'docker.io/my-organization/my-app:${{ github.sha }}'
-          format: 'sarif'
-          template: '@/contrib/sarif.tpl'
-          output: 'trivy-results.sarif'
+          format: template
+          template: "@trivy/github-markdown.tpl"
+          output: trivy.md
           exit-code: '1'
           ignore-unfixed: true
+          vuln-type: 'os,library'
           severity: 'CRITICAL,HIGH'
 
-      - name: Upload Trivy scan results to PR comment
-        uses: sett-and-hive/sarif-to-comment-action@v2.0.1
-        with:
-          sarif_file: 'trivy-results.sarif'
+
+    
