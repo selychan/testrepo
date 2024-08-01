@@ -76,7 +76,7 @@ form {
 }
 
 .btn-primary {
-    background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
+    background-image: linear-gradient(-225deg, #7085B6 0%, #87A7D9 50%, #DEF3F8 100%);
     padding: 10px 20px;
     font-size: 16px;
     border-radius: 4px;
