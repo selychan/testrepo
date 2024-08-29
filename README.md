@@ -76,4 +76,4 @@ The project integrates several security tools into its CI/CD pipeline using GitH
 - **Semgrep**: Scans the code for security vulnerabilities and coding best practices.
 - **Dependabot**: Automatically checks for dependency updates and security vulnerabilities.
 - **Trivy**: Scans the code for container security.
-- - **Gitleaks**: Automatically checks for cleartext key.
+- **Gitleaks**: Automatically checks for cleartext key.
